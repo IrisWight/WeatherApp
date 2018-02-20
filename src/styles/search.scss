@@ -1,0 +1,24 @@
+.search{
+    padding: 40px 20px;
+    &__title{
+        font: 20px/22px $main-font;
+        color: white;
+        text-align: center;
+    }
+}
+
+.search-form{
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 20px 0;
+    &__field{
+        display: inline-block;
+        vertical-align: middle;
+        width: calc(100% - 150px);
+        margin-right: 15px;
+    }
+    &__btn{
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

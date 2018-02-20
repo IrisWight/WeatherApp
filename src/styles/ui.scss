@@ -1,0 +1,36 @@
+input[type="text"]{
+    font-family: $main-font;
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: 0;
+    padding: 7px;
+    box-sizing: border-box; 
+    background-color: #e8eeef;
+    color:#8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    &:focus{
+        background: #d2d9dd;
+    }
+}
+
+input[type="button"], input[type="submit"] {
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+    margin: 0 auto;
+    background: $green;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border: 1px solid $color2;
+    border-width: 1px 1px 3px;
+    border-radius: 2px;
+    transition: background 0.25s;
+    cursor: pointer;
+    &:hover{
+        background: $green-hover;
+    }
+}

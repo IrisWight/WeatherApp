@@ -1,0 +1,11 @@
+@import "reset.scss";
+@import "vars.scss";
+@import "ui.scss";
+
+@import "header.scss";
+@import "search.scss";
+@import "forecast.scss";
+
+html{
+    background: $bg-gradient;
+}
