@@ -28,6 +28,12 @@ var gulp = require("gulp"),
         .pipe(gulp.dest('./dist/styles'));
     });
 
+    //FONTS
+    gulp.task('fonts', function () {
+        return gulp.src('./src/fonts/**/*.*')
+            .pipe(gulp.dest('./dist/fonts/'));
+    });
+
     //VIEWS
     gulp.task('views', function () {
         return gulp.src('./src/**/*.html')
@@ -48,4 +54,4 @@ var gulp = require("gulp"),
         gulp.watch('./src/**/*.js', ['scripts']);
     });
 
-    gulp.task('default', ['views', 'scss', 'scripts', 'serv', 'watch']);
+    gulp.task('default', ['fonts', 'views', 'scss', 'scripts', 'serv', 'watch']);

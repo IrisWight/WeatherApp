@@ -1,3 +1,22 @@
 .weather {
     padding: 20px;
+    max-width: 620px;
+    &__container{
+        margin-bottom: 20px;
+        padding: 30px;
+        border-radius: 10px;
+        background: rgba( 255,255,255, 0.1 );
+    }
+    &__item{
+        position: relative;
+        &__city{
+            font: 60px/60px $BN;
+            text-transform: uppercase;
+        }
+        &__temp{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
 }

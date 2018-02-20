@@ -1,5 +1,12 @@
-$main-font: Georgia, "Times New Roman", Times, serif;
-$font: helvetica,arial,sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,500,700');
+$main-font: Arial;
+$font: 'Roboto', sans-serif;
+
+$BN: 'bebas_neueregular', sans-serif;
+$BN_bold: 'bebas_neuebold', sans-serif;
+$BN_book: 'bebas_neuebook', sans-serif;
+$BN_light: 'bebas_neuelight', sans-serif;
+$BN_thin: 'bebas_neuethin', sans-serif;
 
 //COLORS
 $color-light: #f9f7f0;
