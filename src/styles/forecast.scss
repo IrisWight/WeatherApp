@@ -1,22 +1,80 @@
 .weather {
     padding: 20px;
     max-width: 620px;
+    margin: 0 auto;
     &__container{
         margin-bottom: 20px;
-        padding: 30px;
+        padding: 23px 30px;
         border-radius: 10px;
         background: rgba( 255,255,255, 0.1 );
+        box-shadow: 2px 5px 12px rgba(0,0,0,0.15);
     }
     &__item{
         position: relative;
         &__city{
-            font: 60px/60px $BN;
+            font: 64px/64px $BN;
+            letter-spacing: 0.01em;
             text-transform: uppercase;
         }
         &__temp{
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 18px;
+            right: 19px;
+        }
+        &__info {
+            padding: 7px 0;
+        }
+        &__day{
+            font: 40px/42px $BN_light;
+        }
+        &__date{
+            font: 25px/26px $BN_light;
+            letter-spacing: 0.015em;
+            padding-bottom: 7px;
+        }
+        &__wind{
+            font: 100 18px/22px $font;
+        }
+        &__perc{
+            font: 100 25px/25px $font;
+            padding: 14px 0;
+        }
+        &__cond{
+            width: 66.66%;
+            padding-top: 7px;
+            font: 40px/42px $BN_light;
+            text-align: right;
+        }
+    }
+    &__temp--small{
+        font: 32px/32px $BN_book;
+    }
+    &__temp--large{
+        font: 160px/160px $BN_bold;
+        padding-top: 40px;
+        box-sizing: border-box;
+        padding-left: 18px;
+    }
+    &__units{
+        font-style: normal;
+        font-size: 15px;
+    }
+    &-prev{
+        padding: 15px 30px;
+        &__item{
+            text-align: center;
+            &__day{
+                font: 32px/32px $BN_light;
+                padding-bottom: 5px;
+            }
+            &__img{
+                img{
+                    display: block;
+                    width: 80%;
+                    height: auto;
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }
