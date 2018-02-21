@@ -39,6 +39,9 @@
             font: 100 25px/25px $font;
             padding: 14px 0;
         }
+        &__img{
+            font-size: 145px;
+        }
         &__cond{
             width: 66.66%;
             padding-top: 7px;
@@ -65,15 +68,11 @@
             text-align: center;
             &__day{
                 font: 32px/32px $BN_light;
-                padding-bottom: 5px;
+                padding-bottom: 10px;
             }
             &__img{
-                img{
-                    display: block;
-                    width: 80%;
-                    height: auto;
-                    margin: 0 auto;
-                }
+                font-size: 50px;
+                padding-bottom: 15px;
             }
         }
     }
