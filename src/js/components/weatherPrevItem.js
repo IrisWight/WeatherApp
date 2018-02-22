@@ -6,6 +6,7 @@ weatherApp.component('weatherPrevItem',{
     bindings: {
         cityWeather: '=',
         convertDate: '&',
-        round: '&'
+        round: '&',
+        getIcon: '&'
     }
 });

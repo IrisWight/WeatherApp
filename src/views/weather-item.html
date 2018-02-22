@@ -12,7 +12,7 @@
                 <div class="weather__item__wind">Wind {{ weatherItemVm.data.wind }}<i class="weather__units">km/h</i></div>
                 <div class="weather__item__perc"><i class="wi wi-raindrop"></i>{{ weatherItemVm.data.humidity }}<i class="weather__units">%</i></div>
             </div>
-            <div class="row__coll row__coll--1-3 weather__item__img"><i class="wi wi-day-cloudy"></i></div>
+            <div class="row__coll row__coll--1-3 weather__item__img"><i class="{{weatherItemVm.data.icon}}"></i></div>
             <div class="row__coll row__coll--1-3 weather__temp--large">{{ weatherItemVm.data.temp }}&deg;</div>
         </div>
         <div class="weather__item__cond">{{ weatherItemVm.data.desc }}</div>

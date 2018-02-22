@@ -1,7 +1,7 @@
 <div class="weather-prev weather__container row">
     <div class="weather-prev__item row__coll row__coll--1-6" ng-repeat="w in weatherPrevItemVm.cityWeather.list">
         <div class="weather-prev__item__day">{{ weatherPrevItemVm.convertDate({ date: w.dt, st: true }) }}</div>
-        <div class="weather-prev__item__img"><i class="wi wi-day-sunny"></i></div>
+        <div class="weather-prev__item__img"><i class="{{ weatherPrevItemVm.getIcon({ icon: w.weather[0].main }) }}"></i></div>
         <div class="weather__temp--small">{{ weatherPrevItemVm.round({ temp: w.main.temp }) }}&deg;</div>
     </div>
 </div>

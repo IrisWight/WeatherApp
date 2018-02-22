@@ -14,24 +14,28 @@ weatherApp.controller('searchController', [ '$scope', '$http', '$location', 'cit
     }
 ]);
 
-weatherApp.controller( 'forecastController', [ '$scope', '$http', 'cityService', 'weatherService', function( $scope, $http, cityService, weatherService ){
+weatherApp.controller( 'forecastController', [ '$scope', '$http', 'cityService', 'weatherService',
+function( $scope, $http, cityService, weatherService ){
     var vm = this;
     vm.city = cityService.city;
     vm.round = round;
     vm.convertDate = convertDate;
+    vm.getIcon = getIcon;
 
     weatherService.getWeather( vm.city ).then( function(response){
         vm.cityWeather = response.data;
+        var item = vm.cityWeather.list[0];
 
         vm.data = {
             city: vm.cityWeather.city.name,
-            date: vm.cityWeather.list[0].dt,
-            temp: vm.round( vm.cityWeather.list[0].main.temp ),
-            min: vm.round( vm.cityWeather.list[0].main.temp_min ),
-            max: vm.round( vm.cityWeather.list[0].main.temp_max ),
-            wind: vm.round( vm.cityWeather.list[0].wind.speed ),
-            humidity: vm.cityWeather.list[0].main.humidity,
-            desc: vm.cityWeather.list[0].weather[0].description
+            date: item.dt,
+            temp: vm.round( item.main.temp ),
+            min: vm.round( item.main.temp_min ),
+            max: vm.round( item.main.temp_max ),
+            wind: vm.round( item.wind.speed ),
+            humidity: item.main.humidity,
+            desc: item.weather[0].description,
+            icon: vm.getIcon( item.weather[0].main )
         };
 
         console.log(vm.cityWeather);
@@ -58,6 +62,23 @@ weatherApp.controller( 'forecastController', [ '$scope', '$http', 'cityService',
             return d.toLocaleString('en-US', {day: '2-digit', month: '2-digit', year: 'numeric'});
         }
     }
+
+    function getIcon( code ){
+        this.icons = {
+            clouds: 'wi wi-day-cloudy',
+            rain: 'wi wi-day-rain',
+            snow: 'wi wi-day-snow',
+            thunderstorm: 'wi-day-thunderstorm',
+            clear: 'wi wi-day-sunny'
+        }
+        for (key in this.icons) {
+            if( key === code.toLowerCase() ) {
+                return this.icons[key]
+            } else{
+                return this.icons[clouds]
+            }
+        }
+    };
 
 }]);
 
