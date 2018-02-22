@@ -1,6 +1,6 @@
 <div class="weather" ng-controller="forecastController as forecastVm">
         <weather-item data="forecastVm.data" convert-date="forecastVm.convertDate( date, lg, st )"></weather-item>
-        <weather-prev-item city-weather="forecastVm.cityWeather" 
+        <weather-prev-item unique="forecastVm.unique" 
         convert-date="forecastVm.convertDate( date, lg, st )"
         round="forecastVm.round(temp)"
         get-icon="forecastVm.getIcon(icon)"></weather-prev-item>

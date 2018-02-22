@@ -4,7 +4,7 @@ weatherApp.component('weatherPrevItem',{
     controller: 'weatherPrevItemController',
     controllerAs: 'weatherPrevItemVm',
     bindings: {
-        cityWeather: '=',
+        unique: '=',
         convertDate: '&',
         round: '&',
         getIcon: '&'

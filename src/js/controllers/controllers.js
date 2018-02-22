@@ -21,32 +21,28 @@ function( $scope, $http, cityService, weatherService ){
     vm.round = round;
     vm.convertDate = convertDate;
     vm.getIcon = getIcon;
+    vm.getOneDayItems = getOneDayItems;
 
-    weatherService.getWeather( vm.city ).then( function(response){
-        vm.cityWeather = response.data;
-        var item = vm.cityWeather.list[0];
+    weatherService.getWeather( vm.city )
+        .then( function(response){
+            vm.cityWeather = response.data;
+            var item = vm.cityWeather.list[0];
 
-        vm.data = {
-            city: vm.cityWeather.city.name,
-            date: item.dt,
-            temp: vm.round( item.main.temp ),
-            min: vm.round( item.main.temp_min ),
-            max: vm.round( item.main.temp_max ),
-            wind: vm.round( item.wind.speed ),
-            humidity: item.main.humidity,
-            desc: item.weather[0].description,
-            icon: vm.getIcon( item.weather[0].main )
-        };
-
-        console.log(vm.cityWeather);
-    });
-
-    // getApplication(applicant) {
-    //     return $http
-    //       .get(`/api/${applicant.id}`)
-    //       .then(handleSuccess)
-    //       .catch(handleError);
-    //   }   
+            vm.data = {
+                city: vm.cityWeather.city.name,
+                date: item.dt,
+                temp: vm.round( item.main.temp ),
+                min: vm.round( item.main.temp_min ),
+                max: vm.round( item.main.temp_max ),
+                wind: vm.round( item.wind.speed ),
+                humidity: item.main.humidity,
+                desc: item.weather[0].description,
+                icon: vm.getIcon( item.weather[0].main )
+            };
+            vm.getOneDayItems();
+        }).catch( function(handleError){
+            console.log(handleError);
+        });
 
     function round (number){
         return Math.round( number );
@@ -71,23 +67,36 @@ function( $scope, $http, cityService, weatherService ){
             thunderstorm: 'wi-day-thunderstorm',
             clear: 'wi wi-day-sunny'
         }
+
         for (key in this.icons) {
             if( key === code.toLowerCase() ) {
                 return this.icons[key]
-            } else{
-                return this.icons['clouds']
+            } 
+        }
+        return this.icons['clouds']
+    };
+
+    function getOneDayItems(){
+        vm.unique = { }
+        var start = vm.convertDate( vm.cityWeather.list[0].dt, true );
+        vm.unique[0] = vm.cityWeather.list[0];
+
+        for ( var i = 0; i < vm.cityWeather.list.length; i++ ) {
+            var target = vm.convertDate( vm.cityWeather.list[i].dt, true );
+
+            if( start !== target ){
+                vm.unique[i] = vm.cityWeather.list[i];
+                start = target;
             }
         }
-    };
+    }
 
 }]);
 
 weatherApp.controller( 'weatherItemController', [ '$scope', function( $scope,  ){
     var vm = this;
-
 }]);
 
 weatherApp.controller('weatherPrevItemController', [ '$scope', function( $scope ){
     var vm = this;
-    vm.city = '1.1';
 }]);
