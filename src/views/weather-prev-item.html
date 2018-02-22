@@ -1,32 +1,7 @@
 <div class="weather-prev weather__container row">
-        <div class="weather-prev__item row__coll row__coll--1-6">
-            <div class="weather-prev__item__day">Tue</div>
-            <div class="weather-prev__item__img"><i class="wi wi-day-sunny"></i></div>
-            <div class="weather__temp--small">25&deg;</div>
-        </div>
-        <div class="weather-prev__item row__coll row__coll--1-6">
-            <div class="weather-prev__item__day">Wed</div>
-            <div class="weather-prev__item__img"><i class="wi wi-cloud"></i></div>
-            <div class="weather__temp--small">20&deg;</div>
-        </div>
-        <div class="weather-prev__item row__coll row__coll--1-6">
-            <div class="weather-prev__item__day">Thu</div>
-            <div class="weather-prev__item__img"><i class="wi wi-showers"></i></div>
-            <div class="weather__temp--small">19&deg;</div>
-        </div>
-        <div class="weather-prev__item row__coll row__coll--1-6">
-            <div class="weather-prev__item__day">Fir</div>
-            <div class="weather-prev__item__img"><i class="wi wi-storm-showers"></i></div>
-            <div class="weather__temp--small">15&deg;</div>
-        </div>
-        <div class="weather-prev__item row__coll row__coll--1-6">
-            <div class="weather-prev__item__day">Sat</div>
-            <div class="weather-prev__item__img"><i class="wi wi-snowflake-cold"></i></div>
-            <div class="weather__temp--small">-5&deg;</div>
-        </div>
-        <div class="weather-prev__item row__coll row__coll--1-6">
-            <div class="weather-prev__item__day">Sun</div>
-            <div class="weather-prev__item__img"><i class="wi wi-strong-wind"></i></div>
-            <div class="weather__temp--small">25&deg;</div>
-        </div>
+    <div class="weather-prev__item row__coll row__coll--1-6" ng-repeat="w in weatherPrevItemVm.cityWeather.list">
+        <div class="weather-prev__item__day">{{ weatherPrevItemVm.convertDate({ date: w.dt, st: true }) }}</div>
+        <div class="weather-prev__item__img"><i class="wi wi-day-sunny"></i></div>
+        <div class="weather__temp--small">{{ weatherPrevItemVm.round({ temp: w.main.temp }) }}&deg;</div>
     </div>
+</div>

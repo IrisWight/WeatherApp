@@ -21,7 +21,7 @@ weatherApp.controller( 'forecastController', [ '$scope', '$http', 'cityService',
     vm.convertDate = convertDate;
 
     weatherService.getWeather( vm.city ).then( function(response){
-        vm.cityWeather  = response.data;
+        vm.cityWeather = response.data;
 
         vm.data = {
             city: vm.cityWeather.city.name,
@@ -33,6 +33,8 @@ weatherApp.controller( 'forecastController', [ '$scope', '$http', 'cityService',
             humidity: vm.cityWeather.list[0].main.humidity,
             desc: vm.cityWeather.list[0].weather[0].description
         };
+
+        console.log(vm.cityWeather);
     });
 
     // getApplication(applicant) {
