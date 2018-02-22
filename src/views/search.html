@@ -1,7 +1,7 @@
-<div class="search">
+<div class="search" ng-controller="searchController as searchVm">
     <div class="search__title">Forecast by City</div>
-    <form class="search-form">
-        <input class="search-form__field" type="text">
+    <form class="search-form" ng-submit="searchVm.submit()">
+        <input class="search-form__field" type="text" ng-model="searchVm.city">
         <input class="search-form__btn" type="submit" value="Get Forecast">
     </form>
 </div>
