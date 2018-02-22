@@ -75,7 +75,7 @@ function( $scope, $http, cityService, weatherService ){
             if( key === code.toLowerCase() ) {
                 return this.icons[key]
             } else{
-                return this.icons[clouds]
+                return this.icons['clouds']
             }
         }
     };
